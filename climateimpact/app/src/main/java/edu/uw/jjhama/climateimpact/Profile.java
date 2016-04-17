@@ -25,7 +25,7 @@ public class Profile extends AppCompatActivity{
 
         //https://www.codeofaninja.com/2014/02/android-navigation-drawer-example.html
         //drawerItem[0] = new ObjectDrawerItem("Create");
-        //drawerItem[1] = new ObjectDrawerItem(R.drawable.ic_action_refresh, "Read");
+        drawerItem[0] = new ObjectDrawerItem(R.drawable.ic_nav_profile, "Profile");
         //drawerItem[2] = new ObjectDrawerItem(R.drawable.ic_action_share, "Help");
     }
 }

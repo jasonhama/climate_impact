@@ -11,7 +11,7 @@ import android.widget.Button;
  * Created by iguest on 4/15/16.
  */
 public class Signin extends AppCompatActivity {
-    private static final String TAG = "MainActivity";
+    private static final String TAG = "Signin";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +24,10 @@ public class Signin extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 Log.v(TAG, "Hello! ==========================================================");
+
+                //send the user to the signin page
+                Intent intent = new Intent(Signin.this, edu.uw.jjhama.climateimpact.Profile.class);
+                startActivity(intent);
             }
         });
 
