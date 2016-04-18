@@ -3,6 +3,8 @@ package edu.uw.jjhama.climateimpact;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.widget.ListView;
 
 /**
@@ -16,16 +18,25 @@ public class Profile extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.test);
+        setContentView(R.layout.profile);
         mNavigationDrawerItemTitles = getResources().getStringArray(R.array.navigation_drawer_items_array);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerList = (ListView) findViewById(R.id.left_drawer);
 
-        ObjectDrawerItem[] drawerItem = new ObjectDrawerItem[3];
+        ObjectDrawerItem[] drawerItem = new ObjectDrawerItem[1];
 
         //https://www.codeofaninja.com/2014/02/android-navigation-drawer-example.html
         //drawerItem[0] = new ObjectDrawerItem("Create");
         drawerItem[0] = new ObjectDrawerItem(R.drawable.ic_nav_profile, "Profile");
         //drawerItem[2] = new ObjectDrawerItem(R.drawable.ic_action_share, "Help");
+
+
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu, menu);
+        return true;
     }
 }
