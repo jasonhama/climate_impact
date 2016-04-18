@@ -92,8 +92,47 @@
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="Water"
         android:id="@+id/water"
-        android:layout_below="@+id/carbon"
-        android:layout_alignLeft="@+id/carbon"
-        android:layout_alignStart="@+id/carbon" />
+        android:layout_below="@+id/textView6"
+        android:layout_toRightOf="@+id/textView6"
+        android:layout_toEndOf="@+id/textView6" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="To Activity"
+        android:id="@+id/activity"
+        android:layout_marginBottom="55dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="fName"
+        android:id="@+id/fName"
+        android:layout_alignTop="@+id/textView3"
+        android:layout_alignRight="@+id/carbon"
+        android:layout_alignEnd="@+id/carbon" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="lName"
+        android:id="@+id/lName"
+        android:layout_above="@+id/textView5"
+        android:layout_alignLeft="@+id/fName"
+        android:layout_alignStart="@+id/fName" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Country"
+        android:id="@+id/Country"
+        android:layout_above="@+id/textView9"
+        android:layout_alignLeft="@+id/lName"
+        android:layout_alignStart="@+id/lName" />
 
 </RelativeLayout>

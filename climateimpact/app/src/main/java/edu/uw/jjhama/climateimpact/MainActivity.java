@@ -2,6 +2,7 @@ package edu.uw.jjhama.climateimpact;
 
 import android.accounts.Account;
 import android.content.Intent;
+import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -9,10 +10,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import java.io.Serializable;
+
 //this class handles signing in
 public class MainActivity extends AppCompatActivity {
 
-    private static final String TAG = "MainActivity";
+    private static final String TAG = "MainActivity/Signup";
     private AccountDetails accountDetails;
 
     @Override
@@ -39,15 +42,20 @@ public class MainActivity extends AppCompatActivity {
 
 
                 if(name != null && email != null) {
+                    if(password.length() > 0) {
+                        if (password.equals(confirmPassword)) {
+                            //send the user to the signin page
 
-                    if (password.equals(confirmPassword)) {
-                        //send the user to the signin page
-
-
-                        Intent intent = new Intent(MainActivity.this, edu.uw.jjhama.climateimpact.Profile.class);
-                        startActivity(intent);
+                            AccountDetails accountDetails = new AccountDetails(name, "last name", email, password);
+                            Intent intent = new Intent(MainActivity.this, edu.uw.jjhama.climateimpact.Profile.class);
+                            intent.putExtra("account", (Parcelable) accountDetails);
+                            Log.v(TAG, accountDetails.toString());
+                            startActivity(intent);
+                        } else {
+                            Log.v(TAG, "password and confirm were not the same");
+                        }
                     } else {
-                        Log.v(TAG, "password and confirm were not the same");
+                        Log.v(TAG, "password was empty");
                     }
                 } else {
                     Log.v(TAG, "name or email was null");
