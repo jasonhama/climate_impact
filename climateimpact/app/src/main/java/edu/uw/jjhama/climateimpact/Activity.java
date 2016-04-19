@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -41,6 +42,9 @@ public class Activity extends AppCompatActivity{
 //                        .addToBackStack(null)
 //                        .commit();
                 Log.v(TAG, "here");
+                FragmentManager manager = getSupportFragmentManager(); // or getFragmentManager, depends on which api lvl you are working on but supportFragmentManager will make you dialog work also on devices lower than api lvl 11(3.0 - > Honeycomb)
+                DialogFragment Dialog = ActivityDetail.newInstance();
+                //Dialog.show(manager, null);
             }
         });
         ActivityDetail alert = new ActivityDetail();

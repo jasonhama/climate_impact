@@ -26,8 +26,7 @@ import android.widget.TextView;
 public class Profile extends Activity{
     private static final String TAG = "Profile";
     private String[] mNavigationDrawerItemTitles;
-    private DrawerLayout mDrawerLayout;
-    private ListView mDrawerList;
+
     private AccountDetails accountDetails;
     private DrawerLayout mDrawer;
     //private NavigationView nvDrawer;
@@ -50,7 +49,7 @@ public class Profile extends Activity{
         mDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         //accountDetails = (AccountDetails) getApplicationContext().getInstance();
 
-
+        /*
         String[] planets_array = new String[]{"A", "B", "C"};
         mPlanetTitles = planets_array;
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -61,7 +60,7 @@ public class Profile extends Activity{
                 R.layout.drawer_list_item, mPlanetTitles));
         // Set the list's click listener
         mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
-
+        */
 
 
 
@@ -105,6 +104,7 @@ public class Profile extends Activity{
         });
     }
 
+    /*
     private class DrawerItemClickListener implements ListView.OnItemClickListener {
         @Override
         public void onItemClick(AdapterView parent, View view, int position, long id) {
@@ -112,7 +112,7 @@ public class Profile extends Activity{
         }
     }
 
-    /** Swaps fragments in the main content view */
+    // Swaps fragments in the main content view
     private void selectItem(int position) {
         // Create a new fragment and specify the planet to show based on position
         Fragment fragment = new PlanetFragment();
@@ -137,4 +137,5 @@ public class Profile extends Activity{
         mTitle = title;
         getActionBar().setTitle(mTitle);
     }
+    */
 }

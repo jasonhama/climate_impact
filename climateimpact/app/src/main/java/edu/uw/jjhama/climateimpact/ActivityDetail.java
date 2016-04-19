@@ -34,4 +34,9 @@ public class ActivityDetail extends DialogFragment{
         // Create the AlertDialog object and return it
         return builder.create();
     }
+
+    public static ActivityDetail newInstance(){
+        ActivityDetail arg = new ActivityDetail();
+        return arg;
+    }
 }
