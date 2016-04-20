@@ -21,6 +21,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTitle("Sign Up");
+
         setContentView(R.layout.activity_main);
 
         Button submit = (Button) findViewById(R.id.submit);

@@ -15,15 +15,21 @@ import android.widget.ImageView;
  */
 public class Startup extends AppCompatActivity {
     private static final String TAG = "Startup";
+    ImageView img;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTitle("Welcome");
+
         setContentView(R.layout.startup);
 
-//        //assign the logo to the page
-//        ImageView img=(ImageView)findViewById(R.id.imageViewLogo);
-//        Drawable myDrawable = getResources().getDrawable(R.drawable.ic_nav_logo);
+        //assign the logo to the page
+
+//        int id = getResources().getIdentifier("yourpackagename:drawable/ic_logo.jpg", null, null);
+//        img.setImageResource(id);
+        //img=(ImageView)findViewById(R.id.imageViewLogo);
+//        Drawable myDrawable = getResources().getDrawable(R.drawable.ic_logo);
 //        img.setImageDrawable(myDrawable);
 
         //get the buttons
