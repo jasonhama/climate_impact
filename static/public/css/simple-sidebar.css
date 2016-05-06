@@ -5,7 +5,6 @@
  */
 
 /* Toggle Styles */
-@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600|Jura);
 
 #wrapper {
     padding-left: 0;
@@ -56,20 +55,19 @@
     top: 0;
     width: 250px;
     margin: 0;
-    padding: 0;
+    padding: 1em;
     list-style: none;
 }
 
 .sidebar-nav li {
     text-indent: 20px;
     line-height: 50px;
-    font-family: 'Jura';
 }
 
 .sidebar-nav li a {
     display: block;
     text-decoration: none;
-    color: #999999;
+    color: #fff;
 }
 
 .sidebar-nav li a:hover {
@@ -96,7 +94,7 @@
 }
 
 .sidebar-nav > .sidebar-brand span {
-    color: forestgreen;
+    color: red;
 }
 
 .sidebar-nav > .sidebar-brand a:hover {

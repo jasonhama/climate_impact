@@ -1,0 +1,90 @@
+<!-- Sidebar -->
+<div id="sidebar-wrapper">
+    <ul class="sidebar-nav">
+        <li class="sidebar-brand">
+            <a href="#"><h2>Climate<span>Impact</span></h2></a>
+        </li>
+        <li>
+            <a href="#">My Account</a>
+        </li>
+        <li>
+            <a href="#">Calculate Your Footprint</a>
+        </li>
+        <li>
+            <a href="#">Action Items</a>
+        </li>
+        <li>
+            <a href="#">About</a>
+        </li>
+    </ul>
+</div>
+<!-- #sidebar-wrapper -->
+
+<!-- Page content -->
+<div id="page-content-wrapper">
+    <div class="container-fluid">
+
+        <div class="header">
+            <ul class="nav nav-pills pull-right">
+                <li active><a href="#">Join Us!</a></li>
+                <li><a href="#">Find Friends</a></li>
+            </ul>
+            <h3>Start making a difference today.</h3>
+        </div>
+
+        <!-- Map and Side Panel -->
+        <div class="row content">
+            <!-- Google Map -->
+            <div class="col-md-8">
+                <ng-map
+                    center="Washington State, USA" 
+                    zoom="7">
+                        <!--<map-data load-geo-json="{{jsonURL}}"></map-data>-->
+                </ng-map>
+            </div>
+
+            <!-- Side Panel -->
+            <div class="col-md-4">
+                <div class="panel panel-default">
+                    <!-- Panel Title -->
+                    <div class="panel-heading">
+                        <h2 class="panel-title text-center">Learn about your environment! <span class="glyphicon glyphicon-map-marker"></span></h2>
+                    </div>
+                    <!-- Panel Body -->
+                    <div class="panel-body">
+                        <!-- Creates Form (novalidate disables HTML validation, Angular will control) -->
+                        <form novalidate>
+                            <label class="radio control-label">Explore environmental factors</label>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="mapOption" id="radio_water" value="water" ng-model="formData.water">
+                                    Water
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="mapOption" id="radio_land_use" value="land_use" ng-model="formData.landuse">
+                                    Land Use
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="mapOption" id="radio_forest" value="forest_cover" ng-model="formData.forest">
+                                    Forest Cover
+                                </label>
+                            </div>
+                                <!--<div class="radio">
+                                <label>
+                                    <input type="radio" name="mapOption" id="radio_air" value="air_quality" ng-model="formData.airQuality">
+                                    Ocean Health
+                                </label>
+                            </div>                                               -->
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- #page-content-wrapper -->

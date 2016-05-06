@@ -27,6 +27,7 @@ app.use(passport.initialize()); //add authentication to the app
 app.use(passport.session());    //add session support to the app
 
 app.use(express.static(__dirname + '/static/public'));
+app.use('/bower_components', express.static(__dirname + '/bower_components'));
 
 app.use(function(req, res, next) {
    //TODO: check if the user is authenticated with req.isAuthenticated
@@ -37,5 +38,5 @@ app.use(express.static(__dirname + '/static/secure'));
 
 //start the server
 app.listen(80, function() {
-    console.log('server is listening...');
+   console.log("Server listening on port 80..."); 
 });
