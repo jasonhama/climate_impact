@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 /**
  * Created by iguest on 4/15/16.
@@ -24,6 +25,8 @@ public class Signin extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 Log.v(TAG, "Hello! ==========================================================");
+
+
 
                 //send the user to the signin page
                 Intent intent = new Intent(Signin.this, edu.uw.jjhama.climateimpact.Profile.class);

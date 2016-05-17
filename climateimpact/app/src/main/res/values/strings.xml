@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">climate impact</string>
     <color name="white">#FFFFFF</color>
+    <color name="green">#1a9629</color>
+    <color name="dark">#171715</color>
+    <color name="red">#d81717</color>
     <string-array name="navigation_drawer_items_array">
         <item>Create</item>
         <item>Read</item>

@@ -7,14 +7,16 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:background="@color/white"
-    tools:context="edu.uw.jjhama.climateimpact.MainActivity">
+    tools:context="edu.uw.jjhama.climateimpact.MainActivity"
+    android:background="@color/dark">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Please create an account to keep track of your action itemsand your performance"
-        android:id="@+id/textView" />
+        android:id="@+id/textView"
+
+        android:textColor="@color/white"/>
 
 
 
@@ -23,25 +25,33 @@
         android:layout_height="wrap_content"
         android:id="@+id/email"
         android:hint="Email"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
         android:layout_above="@+id/password"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="33dp" />
+        android:layout_marginBottom="33dp"
+        />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColorHint="@color/white"
+        android:textColor="@color/white"
         android:id="@+id/password"
         android:hint="Password"
+
         android:layout_marginBottom="33dp"
         android:layout_above="@+id/submit"
         android:layout_alignRight="@+id/submit"
-        android:layout_alignEnd="@+id/submit" />
+        android:layout_alignEnd="@+id/submit"
+        />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Submit"
         android:id="@+id/submit"
+        android:background="@color/red"
         android:layout_marginBottom="84dp"
         android:layout_above="@+id/signup"
         android:layout_centerHorizontal="true" />
@@ -50,6 +60,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Sign Up"
+        android:background="@color/red"
         android:id="@+id/signup"
         android:layout_marginBottom="35dp"
         android:layout_alignParentBottom="true"

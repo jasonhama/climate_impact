@@ -6,8 +6,9 @@
 
         <item
             android:id="@+id/nav_map_fragment"
-            android:title="test"
-            android:checked="true" />
+            android:title="Profile"
+            android:checked="true"
+            android:icon="@drawable/ic_nav_profile"/>
         <!--
         <item
             android:id="@+id/nav_chat_fragment"
