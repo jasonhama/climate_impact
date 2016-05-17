@@ -1,1 +1,0 @@
-var queryCtrl = angular.module('queryCtrl')

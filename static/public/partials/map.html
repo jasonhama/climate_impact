@@ -1,90 +1,174 @@
-<!-- Sidebar -->
-<div id="sidebar-wrapper">
-    <ul class="sidebar-nav">
-        <li class="sidebar-brand">
-            <a href="#"><h2>Climate<span>Impact</span></h2></a>
-        </li>
-        <li>
-            <a href="#">My Account</a>
-        </li>
-        <li>
-            <a href="#">Calculate Your Footprint</a>
-        </li>
-        <li>
-            <a href="#">Action Items</a>
-        </li>
-        <li>
-            <a href="#">About</a>
-        </li>
-    </ul>
-</div>
-<!-- #sidebar-wrapper -->
-
-<!-- Page content -->
-<div id="page-content-wrapper">
-    <div class="container-fluid">
-
-        <div class="header">
-            <ul class="nav nav-pills pull-right">
-                <li active><a href="#">Join Us!</a></li>
-                <li><a href="#">Find Friends</a></li>
-            </ul>
-            <h3>Start making a difference today.</h3>
-        </div>
-
-        <!-- Map and Side Panel -->
-        <div class="row content">
-            <!-- Google Map -->
-            <div class="col-md-8">
-                <ng-map
-                    center="Washington State, USA" 
-                    zoom="7">
-                        <!--<map-data load-geo-json="{{jsonURL}}"></map-data>-->
-                </ng-map>
-            </div>
-
-            <!-- Side Panel -->
-            <div class="col-md-4">
-                <div class="panel panel-default">
-                    <!-- Panel Title -->
-                    <div class="panel-heading">
-                        <h2 class="panel-title text-center">Learn about your environment! <span class="glyphicon glyphicon-map-marker"></span></h2>
-                    </div>
-                    <!-- Panel Body -->
-                    <div class="panel-body">
-                        <!-- Creates Form (novalidate disables HTML validation, Angular will control) -->
-                        <form novalidate>
-                            <label class="radio control-label">Explore environmental factors</label>
-                            <div class="radio">
-                                <label>
-                                    <input type="radio" name="mapOption" id="radio_water" value="water" ng-model="formData.water">
-                                    Water
-                                </label>
-                            </div>
-                            <div class="radio">
-                                <label>
-                                    <input type="radio" name="mapOption" id="radio_land_use" value="land_use" ng-model="formData.landuse">
-                                    Land Use
-                                </label>
-                            </div>
-                            <div class="radio">
-                                <label>
-                                    <input type="radio" name="mapOption" id="radio_forest" value="forest_cover" ng-model="formData.forest">
-                                    Forest Cover
-                                </label>
-                            </div>
-                                <!--<div class="radio">
-                                <label>
-                                    <input type="radio" name="mapOption" id="radio_air" value="air_quality" ng-model="formData.airQuality">
-                                    Ocean Health
-                                </label>
-                            </div>                                               -->
-                        </form>
-                    </div>
-                </div>
-            </div>
-
+<!-- TOOLBAR -->
+<md-toolbar md-whiteframe="4" md-theme="main" class="md-primary" ng-controller="MainController">
+    <div class="md-toolbar-tools">
+        <md-button class="md-accent" ng-click="toggleSide()">
+            <md-icon md-svg-icon="navigation:menu"></md-icon>
+        </md-button>
+        <span flex></span>
+        <span class="md-headline">Climate<span class="green_accent">Impact</span></span>
+        <span flex></span>
+        <div layout="row" layout-align="end-center">
+            <md-menu md-offset="0 -7">
+                <md-button aria-label="Open demo menu" class="md-icon-button" ng-click="$mdOpenMenu($event)">
+                    <md-icon md-svg-icon="navigation:more_vert"></md-icon>
+                </md-button>
+                <md-menu-content width="2">
+                    <md-menu-item>
+                        <md-button class="md-accent" href="/signup">
+                            Sign Up
+                        </md-button>
+                    </md-menu-item>
+                    <md-menu-item>
+                        <md-button class="md-accent" href="/signin">
+                            Log In
+                        </md-button>
+                    </md-menu-item>
+                </md-menu-content>
+            </md-menu>
         </div>
     </div>
+</md-toolbar>
+
+<!-- Content Wrapper -->
+<div layout="row" flex ng-controller="MainController" md-theme="home">
+    <!-- Left Side Nav -->
+    <md-sidenav ng-click="toggleSide()"
+                md-whiteframe="4"
+                md-component-id="left"
+                md-is-locked-open="false"
+                layout-align="space-between"
+                layout="column">
+
+        <md-toolbar class="md-tall md-toolbar-tools" layout="column" layout-align="end">
+                <span flex></span>
+                <h3 class="md-title">John Doe</h3>
+                <h4 class="md-subhead">mail@example.com</h4>
+        </md-toolbar>
+
+
+        <!--<md-content layout-padding>-->
+            <!--<img src="img/logo-sm.png" class="face" alt="you" height="100" width="100">-->
+            <!--<p class="md-subhead">My Account</p>-->
+        <!--</md-content>-->
+        <!--<md-divider></md-divider>-->
+        <span flex="5"></span>
+        <md-list >
+            <md-list-item>
+                <md-button class="menu_btn md-accent">Home</md-button>
+            </md-list-item>
+            <md-list-item>
+                <md-button class="menu_btn md-accent">My Account</md-button>
+            </md-list-item>
+            <md-list-item>
+                <md-button class="menu_btn md-accent">Environmental Map</md-button>
+            </md-list-item>
+            <md-list-item>
+                <md-button class="menu_btn md-accent">Calculate Impact</md-button>
+            </md-list-item>
+            <md-list-item>
+                <md-button class="menu_btn md-accent">Action Items</md-button>
+            </md-list-item>
+            <md-list-item>
+                <md-button class="menu_btn md-accent">Resources</md-button>
+            </md-list-item>
+        </md-list>
+        <span flex></span>
+        <div layout="row" layout-align="start">
+            <md-button class="menu_btn md-accent">About</md-button>
+        </div>
+
+    </md-sidenav>
+
+    <!-- Main Content -->
+    <md-content layout="row" flex>
+        <md-card md-whiteframe="4" flex="20" layout="column">
+            <md-card-header>
+                <md-card-header-text>
+                    <span class="md-body-2">Explore</span>
+                </md-card-header-text>
+            </md-card-header>
+        </md-card>
+        <md-card md-whiteframe="4" flex="66" layout="column" id="mapCard" hide-xs>
+            <md-card-header>
+                <md-card-header-text layout="row" layout-align="center center">
+                    <span class="md-headline">WA Tribal Lands</span>
+                </md-card-header-text>
+            </md-card-header>
+
+            <md-card-content layout="column" flex class="layout-fill" class="content-wrapper">
+                <!--<ng-map center="[40.74, -74.18]"></ng-map>-->
+                <div flex class="layout-fill" id="map"></div>
+            </md-card-content>
+        </md-card>
+
+        <div flex="20" layout="column" >
+            <md-card md-whiteframe="4">
+                <md-card-header>
+                    <md-card-header-text>
+                        <span class="md-body-2">Air Quality</span>
+                    </md-card-header-text>
+                    <span flex></span>
+                    <md-icon md-svg-icon="navigation:more_vert"></md-icon>
+                </md-card-header>
+                <md-divider></md-divider>
+                <md-card-content layout="column" layout-align="space-around center">
+                    <md-progress-circular class="md-accent" md-mode="determinate" value="90" md-diameter="100%"></md-progress-circular>
+                    <p class="md-display-1">90%</p>
+                </md-card-content>
+            </md-card>
+            <md-card flex md-whiteframe="4">
+                <md-card-header>
+                    <md-card-header-text>
+                        <span class="md-body-2">Action Items</span>
+                    </md-card-header-text>
+                    <span flex></span>
+                    <md-icon md-svg-icon="navigation:more_vert"></md-icon>
+                </md-card-header>
+                <md-divider></md-divider>
+                <md-card-content class="action_items">
+                    <md-list>
+                        <md-list-item>
+                            <div class="md-list-item-text" layout="column">
+                                <md-checkbox>
+                                    Plant a pine tree
+                                </md-checkbox>
+                            </div>
+                        </md-list-item>
+
+                        <md-divider></md-divider>
+
+                        <md-list-item>
+                            <div class="md-list-item-text">
+                                <md-checkbox>
+                                    Recycle plastic bottles
+                                </md-checkbox>
+                            </div>
+                        </md-list-item>
+
+                        <md-divider></md-divider>
+
+                        <md-list-item>
+                            <div class="md-list-item-text md-2-line">
+                                <md-checkbox>
+                                    Implement a rain garden
+                                </md-checkbox>
+                            </div>
+                        </md-list-item>
+                    </md-list>
+                </md-card-content>
+            </md-card>
+            <!--<md-card flex md-whiteframe="4">-->
+                <!--<md-card-header>-->
+                    <!--<md-card-header-text>-->
+                        <!--<span class="md-subhead">Emissions</span>-->
+                    <!--</md-card-header-text>-->
+                    <!--<span flex></span>-->
+                    <!--<md-icon md-svg-icon="navigation:more_vert"></md-icon>-->
+                <!--</md-card-header>-->
+                <!--<md-card-content>-->
+
+                <!--</md-card-content>-->
+            <!--</md-card>-->
+        </div>
+    </md-content>
 </div>
-<!-- #page-content-wrapper -->

@@ -1,6 +1,6 @@
 function initMap() {
     
-    var styleArray = [
+var styleArray = [
         {
             featureType: "all",
             stylers: [
@@ -8,17 +8,17 @@ function initMap() {
             ]
         }
     ];
-    
+
     var map = new google.maps.Map(document.getElementById("map"), {
         center: {lat: 47.7511,lng: -120.7401},
-        styles: styleArray, 
+        styles: styleArray,
         zoom: 7
     });
-    
-   map.data.loadGeoJson("../map/washington.json");
-   
-   map.data.setStyle({
-       fillColor: 'green'
-   });
-    
+
+    map.data.loadGeoJson("../map/washington.json");
+
+    map.data.setStyle({
+        fillColor: 'green'
+    });
+
 }

@@ -21,5 +21,7 @@ typings
 node_modules/
 bower_components/
 Polymer/
+static/public/elements/
 data/
+
 !.gitignore

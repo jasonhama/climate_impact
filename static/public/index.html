@@ -1,50 +1,45 @@
 <!DOCTYPE html>
-<html class="no-js" ng-app="ClimateImpactApp">
+<html lang="en" ng-app="ClimateApp">
 <head>
+    <meta charset="UTF-8">
     <base href="/">
-    <meta charset="utf-8">
-    <title>ClimateImpact</title>
-    <meta name="description" content="An example demonstrating Google Map integration with MEAN Apps">
-    <meta name="viewport" content="initial-scale=1.0">
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.css"/>    
-    <link rel="stylesheet" href="css/simple-sidebar.css">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/home.css">
-
-    <!-- Holder JS -->
-    <link rel="stylesheet" href="../../bower_components/holderjs/holder.js">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
     
-    <!-- Google Maps API -->
+    <link rel="stylesheet" href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,400italic'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
+
+    <link rel="stylesheet" href="css/app.css">
+
+    <style type="text/css">
+        /**
+         * Hide when Angular is not yet loaded and initialized
+         */
+        [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+          display: none !important;
+        }
+    </style>
+
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCQc9piEb4u51sVq5eLu8UrSQUpbUVx4xk"></script>
-    
-    <!-- Modernizr -->
-    <script src="../../bower_components/modernizr/bin/modernizr"></script>
-    
-    <!-- JS Source -->
-    <script src="../../bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="../../bower_components/angular/angular.min.js"></script>
-    <script src="../../bower_components/angular-route/angular-route.min.js"></script>
-    <script src="../../bower_components/angularjs-geolocation/dist/angularjs-geolocation.min.js"></script>
-    <script src="../../bower_components/ngmap/build/scripts/ng-map.min.js"></script>
-    <!-- Angular Scripts -->
+
+    <title>ClimateImpact</title>
+</head>
+<body ng-view ng-cloak layout="column" flex>
+
+
+    <!-- Angular JS -->
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-material/angular-material.js"></script>
+    <script src="bower_components/angular-material-icons/angular-material-icons.js"></script>
+    <script src="bower_components/firebase/firebase.js"></script>
+    <script src="bower_components/angularfire/dist/angularfire.min.js"></script>
     <script src="js/app.js"></script>
     <script src="js/addCtrl.js"></script>
-    <!--<script src="js/gservice.js"></script>-->
-
-    
-</head>
-<body>
-    <div id="wrapper">
-                
-        <!-- Page content -->
-        <div id="page-content-wrapper">
-            <div ng-view></div>
-        </div>
-        <!-- #page-content-wrapper -->
-        
-    </div>
-    <!-- #wrapper -->            
+    <script src="js/gservice.js"></script>
+    <!--<script src="js/Users.js"></script>
+    <script src="js/UserService.js"></script>-->
 </body>
 </html>

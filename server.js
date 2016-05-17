@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 var express = require('express');
 var morgan  = require('morgan');
@@ -28,6 +28,10 @@ app.use(passport.session());    //add session support to the app
 
 app.use(express.static(__dirname + '/static/public'));
 app.use('/bower_components', express.static(__dirname + '/bower_components'));
+
+app.use('/app/*', function(req, res) {
+   res.sendFile(__dirname + '/static/public/index.html'); 
+});
 
 app.use(function(req, res, next) {
    //TODO: check if the user is authenticated with req.isAuthenticated

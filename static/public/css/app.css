@@ -1,0 +1,28 @@
+html, body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    padding: 0;
+    margin: 0;
+}
+
+.menu_btn {
+    width: 100%;
+    text-align: left !important;
+    margin: 0;
+    padding: 1em;
+}
+
+.green_accent {
+    color: rgb(67,160,71);
+}
+
+.action_items md-divider {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
