@@ -1,0 +1,45 @@
+<md-toolbar md-whiteframe="4" md-theme="main" class="md-primary" ng-controller="MainController">
+    <div class="md-toolbar-tools">
+        <md-button class="md-accent" ng-click="toggleSide()">
+            <md-icon md-svg-icon="navigation:menu"></md-icon>
+        </md-button>
+        <span flex></span>
+        <span class="md-headline">Climate<span class="green_accent">Impact</span></span>
+        <span flex></span>
+        <div layout="row" layout-align="end-center">
+            <md-menu md-offset="0 -7">
+                <md-button aria-label="Open demo menu" class="md-icon-button" ng-click="$mdOpenMenu($event)">
+                    <md-icon md-svg-icon="navigation:more_vert"></md-icon>
+                </md-button>
+                <md-menu-content width="2">
+                    <md-menu-item>
+                        <md-button class="md-accent" href="/signup">
+                            Sign Up
+                        </md-button>
+                    </md-menu-item>
+                    <md-menu-item>
+                        <md-button class="md-accent" href="/signin">
+                            Log In
+                        </md-button>
+                    </md-menu-item>
+                </md-menu-content>
+            </md-menu>
+        </div>
+    </div>
+</md-toolbar>
+
+<!--&lt;!&ndash; Content Wrapper &ndash;&gt;-->
+<!--<md-content layout="column"-->
+            <!--flex="66"-->
+            <!--layout-align="space-around center"-->
+            <!--md-theme="main"-->
+            <!--class="md-accent md-hue-2">-->
+    <!--<md-text-float class="md-display-3 md-hue-2">Hello!</md-text-float>-->
+    <!--<md-button class="md-raised" ng-click="">Facebook</md-button>-->
+<!--</md-content>-->
+<!--<md-content layout="row"-->
+            <!--flex="33"-->
+            <!--md-theme="home"-->
+            <!--class="md-accent">-->
+    <!--<p>Hello</p>-->
+<!--</md-content>-->

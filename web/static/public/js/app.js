@@ -2,7 +2,6 @@
 
 var ClimateApp = angular.module('ClimateApp',
     [
-        'addCtrl',
         'ngRoute',
         'ngMaterial',
         'ngMdIcons',
