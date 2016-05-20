@@ -1,14 +1,13 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" ng-app="ClimateApp">
 <head>
     <meta charset="UTF-8">
     <base href="/">
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
-    
-    <link rel="stylesheet" href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,400italic'>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
 
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no"/>
+
+    <link rel="stylesheet" href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,400italic'>
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
     <link rel="stylesheet" href="css/app.css">
 
     <style type="text/css">
@@ -16,18 +15,101 @@
          * Hide when Angular is not yet loaded and initialized
          */
         [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
-          display: none !important;
+            display: none !important;
         }
     </style>
 
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCQc9piEb4u51sVq5eLu8UrSQUpbUVx4xk"></script>
 
+
     <title>ClimateImpact</title>
+
+
 </head>
-<body ng-view ng-cloak layout="column" flex>
+<body ng-controller="MainController" layout="column" ng-cloak flex>
+
+    <md-toolbar md-whiteframe="4">
+        <div class="md-toolbar-tools">
+            <md-button ng-click="toggleSide()">
+                <md-icon md-svg-icon="navigation:menu"></md-icon>
+            </md-button>
+
+            <span flex></span>
+            <h2 >ClimateImpact</h2>
+            <span flex></span>
+
+            <div layout="row" layout-align="end center">
+                <md-menu md-offset="0 -7">
+                    <md-button aria-label="Open demo menu" class="md-icon-button" ng-click="$mdOpenMenu($event)">
+                        <md-icon md-svg-icon="navigation:more_vert"></md-icon>
+                    </md-button>
+                    <md-menu-content width="2">
+                        <md-menu-item>
+                            <md-button class="md-accent" href="/signup">
+                                Sign Up
+                            </md-button>
+                        </md-menu-item>
+                        <md-menu-item>
+                            <md-button class="md-accent" href="/signin">
+                                Log In
+                            </md-button>
+                        </md-menu-item>
+                    </md-menu-content>
+                </md-menu>
+
+            </div>
+        </div>
+    </md-toolbar>
+
+        <!-- Left Side Nav -->
+    <md-sidenav ng-click="toggleSide()" md-whiteframe="4"
+                md-component-id="left" md-is-locked-open="false"
+                layout-align="space-between" layout="column">
+
+            <md-toolbar class="md-tall md-toolbar-tools" layout="column" layout-align="end">
+                <span flex></span>
+                <h3 class="md-title">John Doe</h3>
+                <h4 class="md-subhead">mail@example.com</h4>
+            </md-toolbar>
+            <span flex="5"></span>
+
+            <md-list>
+                <md-list-item>
+                    <md-button href="/home" class="menu_btn md-accent">Home</md-button>
+                </md-list-item>
+                <md-list-item>
+                    <md-button href="/account" class="menu_btn md-accent">My Account</md-button>
+                </md-list-item>
+                <md-list-item>
+                    <md-button href="/map" class="menu_btn md-accent">Environmental Map</md-button>
+                </md-list-item>
+                <md-list-item>
+                    <md-button href="/calculate" class="menu_btn md-accent">Calculate Impact</md-button>
+                </md-list-item>
+                <md-list-item>
+                    <md-button href="/take_action" class="menu_btn md-accent">Action Items</md-button>
+                </md-list-item>
+                <md-list-item>
+                    <md-button href="/resources" class="menu_btn md-accent">Resources</md-button>
+                </md-list-item>
+            </md-list>
+
+            <span flex></span>
+            <div layout="row" layout-align="start">
+                <md-button href="/about" class="menu_btn md-accent">About</md-button>
+            </div>
+
+        </md-sidenav>
+
+    <div layout="row">
+        <md-content>
+            <h3>Hello</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aliquid, aspernatur blanditiis cupiditate deleniti ex maxime natus quasi repellat voluptas. At beatae culpa earum explicabo fugit harum nulla obcaecati voluptate.</p>
+        </md-content>
+    </div>
 
 
-    <!-- Angular JS -->
+    <!-- Bower Components -->
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-aria/angular-aria.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
@@ -38,11 +120,6 @@
     <script src="bower_components/angularfire/dist/angularfire.min.js"></script>
 
     <script src="js/main.js"></script>
-    <!--<script src="js/app.js"></script>-->
-    <!--<script src="js/userController.js"></script>-->
-    <!--<script src="js/addCtrl.js"></script>-->
-    <script src="js/gservice.js"></script>
-    <!--<script src="js/Users.js"></script>
-    <script src="js/UserService.js"></script>-->
+
 </body>
 </html>
