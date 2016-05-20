@@ -26,45 +26,48 @@
 
 
 </head>
-<body ng-controller="MainController" layout="column" ng-cloak flex>
+<body layout="column" ng-cloak>
 
-    <md-toolbar md-whiteframe="4">
-        <div class="md-toolbar-tools">
-            <md-button ng-click="toggleSide()">
-                <md-icon md-svg-icon="navigation:menu"></md-icon>
-            </md-button>
+    <div ng-controller="MainController">
+        <!-- Toolbar -->
+        <md-toolbar md-whiteframe="4">
+            <div class="md-toolbar-tools">
+                <md-button ng-click="toggleSide()">
+                    <md-icon md-svg-icon="navigation:menu" aria-label="menu"></md-icon>
+                </md-button>
 
-            <span flex></span>
-            <h2 >ClimateImpact</h2>
-            <span flex></span>
+                <span flex></span>
+                <h2 >ClimateImpact</h2>
+                <span flex></span>
 
-            <div layout="row" layout-align="end center">
-                <md-menu md-offset="0 -7">
-                    <md-button aria-label="Open demo menu" class="md-icon-button" ng-click="$mdOpenMenu($event)">
-                        <md-icon md-svg-icon="navigation:more_vert"></md-icon>
-                    </md-button>
-                    <md-menu-content width="2">
-                        <md-menu-item>
-                            <md-button class="md-accent" href="/signup">
-                                Sign Up
-                            </md-button>
-                        </md-menu-item>
-                        <md-menu-item>
-                            <md-button class="md-accent" href="/signin">
-                                Log In
-                            </md-button>
-                        </md-menu-item>
-                    </md-menu-content>
-                </md-menu>
+                <!-- Right Vert -->
+                <div layout="row" layout-align="end center">
+                    <md-menu md-offset="0 -7">
+                        <md-button aria-label="Open demo menu" class="md-icon-button" ng-click="$mdOpenMenu($event)">
+                            <md-icon md-svg-icon="navigation:more_vert"></md-icon>
+                        </md-button>
+                        <md-menu-content width="2">
+                            <md-menu-item>
+                                <md-button class="md-accent" href="/signup">
+                                    Sign Up
+                                </md-button>
+                            </md-menu-item>
+                            <md-menu-item>
+                                <md-button class="md-accent" href="/signin">
+                                    Log In
+                                </md-button>
+                            </md-menu-item>
+                        </md-menu-content>
+                    </md-menu>
 
+                </div>
             </div>
-        </div>
-    </md-toolbar>
+        </md-toolbar>
 
         <!-- Left Side Nav -->
-    <md-sidenav ng-click="toggleSide()" md-whiteframe="4"
-                md-component-id="left" md-is-locked-open="false"
-                layout-align="space-between" layout="column">
+        <md-sidenav ng-click="toggleSide()" md-whiteframe="4"
+                    md-component-id="left" md-is-locked-open="false"
+                    layout-align="space-between" layout="column">
 
             <md-toolbar class="md-tall md-toolbar-tools" layout="column" layout-align="end">
                 <span flex></span>
@@ -98,14 +101,12 @@
             <div layout="row" layout-align="start">
                 <md-button href="/about" class="menu_btn md-accent">About</md-button>
             </div>
-
         </md-sidenav>
 
-    <div layout="row">
-        <md-content>
-            <h3>Hello</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aliquid, aspernatur blanditiis cupiditate deleniti ex maxime natus quasi repellat voluptas. At beatae culpa earum explicabo fugit harum nulla obcaecati voluptate.</p>
-        </md-content>
+    </div>
+
+    <div ng-view layout="column" layout-pading flex>
+
     </div>
 
 

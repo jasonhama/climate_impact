@@ -1,6 +1,64 @@
 "use strict";
 
-var app = angular.module('ClimateApp', ['ngMaterial','firebase']);
+var app = angular.module('ClimateApp', ['ngRoute', 'ngMaterial', 'firebase']);
+
+app.run(["$rootScope", "$location", function($rootScope, $location) {
+
+$rootScope.$on("$routeChangeError", function(event, next, previous, error) {
+
+    if (error === 'AUTH_REQUIRED') {
+        $location.path('/');
+    }
+
+});
+}]);
+
+
+app.factory("Auth", ["$firebaseAuth",
+    function($firebaseAuth) {
+        var ref = new Firebase("https://climateimpact.firebaseio.com");
+        return $firebaseAuth(ref);
+    }
+]);
+
+app.config(["$routeProvider", "$locationProvider",
+    function($routeProvider, $locationProvider) {
+
+        $routeProvider
+            .when('/', {
+                controller: 'MainController',
+                templateUrl: 'partials/home.html'
+            })
+            .when('/calculate', {
+                controller: 'CalculatorCtrl',
+                templateUrl: 'partials/calculate.html',
+                resolve: {
+                    // controller will not be loaded until $waitForAuth resolves
+                    // Auth refers to our $firebaseAuth wrapper in the example above
+                    "currentAuth": ["Auth", function(Auth) {
+                        // $waitForAuth returns a promise so the resolve waits for it to complete
+                        return Auth.$waitForAuth();
+                    }]
+                }
+            })
+            // .when('/map', {
+            //     controller: 'MapController',
+            //     templateUrl: 'partials/map.html',
+            //     resolve: {
+            //         // controller will not be loaded until $waitForAuth resolves
+            //         // Auth refers to our $firebaseAuth wrapper in the example above
+            //         "currentAuth": ["Auth", function(Auth) {
+            //             // $waitForAuth returns a promise so the resolve waits for it to complete
+            //             return Auth.$waitForAuth();
+            //         }]
+            //     }
+            // })
+            .otherwise({ redirectTo : '/' });
+        $locationProvider.html5Mode(true);
+    }
+]);
+
+
 /**
  * ICONS
  */
@@ -30,15 +88,24 @@ app.config(function($mdThemingProvider) {
 });
 
 
-app.controller('MainController', ["$scope", "$mdSidenav", function($scope, $mdSidenav) {
-    $scope.openMenu = function($mdOpenMenu, ev) {
-        originatorEv = ev;
-        $mdOpenMenu(ev);
-    };
+app.controller('MainController', ["$scope", "$mdSidenav",
+    function($scope, $mdSidenav) {
 
-    $scope.toggleSide = function() {
-        console.log('toggle');
-        $mdSidenav('left').toggle();
-    };
+        $scope.openMenu = function($mdOpenMenu, ev) {
+            originatorEv = ev;
+            $mdOpenMenu(ev);
+        };
 
-}]);
+        $scope.toggleSide = function() {
+            console.log('toggle');
+            $mdSidenav('left').toggle();
+        };
+
+    }
+]);
+
+app.controller('CalculatorCtrl', ["$scope",
+    function($scope) {
+
+    }
+]);
