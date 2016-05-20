@@ -3,51 +3,20 @@ var htmlparser = require('htmlparser2');    //parse html
 var cheerio = require('cheerio');
 var rp = require('request-promise');
 
-// var incarbonFP = false;
+
 var baseURL = 'http://impact.brighterplanet.com/';
 var modelsURL = 'http://impact.brighterplanet.com/models';
-var inModelTag = false;
-var footprintVal;
 
 console.log('Scraping URL: ' + modelsURL);
-console.log('Initializing parser...');
 
 var models = [];
 
-// var modelsParser = new htmlparser.WritableStream({
-//     //called whenever the parser encounters an open tag
-//     onopentag: function (name, attrs) {
-//         //detect shit about the tag
-//         if (name === 'a') {
-//             var chunks = attrs.href.split('/');
-//             if (chunks.length > 2) {
-//                 models.push(chunks[2]);
-//             }
-//         }
-//     },
-//     ontext: function(text) {
-//         //if we are in the carbon footprint elem
-//         if (inModelTag) {
-//             //ontext may be called several times, so append
-//             //the text value to req.body.title, or set
-//             //req.body.title if it doesn't exist yet
-//             console.log(text);
-//         }
-//     },
-//     onclosetag: function() {
-//         //once the tag closes we are no longer
-//         //in the title element by definition
-//         // incarbonFP = false;
-//         inModelTag = false;
-//     }
-// }, {decodeEntities: true});
-
-var modelOptions = {
-    uri: modelsURL,
-    transform: function (body) {
-        return cheerio.load(body);
-    }
-};
+//var modelOptions = {
+//    uri: modelsURL,
+//    transform: function (body) {
+//        return cheerio.load(body);
+//    }
+//};
 
 function getCharacteristics(modelName) {
     return new Promise(function(resolve, reject) {
@@ -125,49 +94,50 @@ function getCharacteristics(modelName) {
     });
 }
 
-rp(modelOptions)
-    .then(function ($) {
-        var model;
-        $('span.model').each(function(i, element) {
-            var a = $(this).parent();
-            var pathStr = a.attr("href").split("/");
-            model = {
-                name: pathStr[2],
-                attributes: [ ],
-                associations: [ ]
-            };
-            models.push(model);
-        });
-        console.log('Done parsing urls...');
-    })
-    .then(function() {
-
-        models.forEach(function(model, idx) {
-            console.log("Processing model: " + model.name + "at index: " + idx);
-            getCharacteristics(model.name, idx)
-                .then(function(result) {
-                    console.log('Done processing model: ' + models[idx].name);
-                    models[idx].attributes = result.attributes;
-                    models[idx].associations = result.associations;
-                    // console.dir(models[idx]);
-                    // console.log('\n');
-                })
-                .catch(function(err) {
-                    console.log(err);
-                });
-        });
-
-        return models;
-    })
-    .then(function(models) {
-        console.log("Processed all models!\n");
-        console.dir(models);
-    })
-    .catch(function (err) {
-        // Crawling failed or cheerio choked...
-        console.log(err);
-        exit(1);
-    });
+//
+//rp(modelOptions)
+//    .then(function ($) {
+//        var model;
+//        $('span.model').each(function(i, element) {
+//            var a = $(this).parent();
+//            var pathStr = a.attr("href").split("/");
+//            model = {
+//                name: pathStr[2],
+//                attributes: [ ],
+//                associations: [ ]
+//            };
+//            models.push(model);
+//        });
+//        console.log('Done parsing urls...');
+//    })
+//    .then(function() {
+//
+//        models.forEach(function(model, idx) {
+//            console.log("Processing model: " + model.name + "at index: " + idx);
+//            getCharacteristics(model.name, idx)
+//                .then(function(result) {
+//                    console.log('Done processing model: ' + models[idx].name);
+//                    models[idx].attributes = result.attributes;
+//                    models[idx].associations = result.associations;
+//                    // console.dir(models[idx]);
+//                    // console.log('\n');
+//                })
+//                .catch(function(err) {
+//                    console.log(err);
+//                });
+//        });
+//
+//        return models;
+//    })
+//    .then(function(models) {
+//        console.log("Processed all models!\n");
+//        console.dir(models);
+//    })
+//    .catch(function (err) {
+//        // Crawling failed or cheerio choked...
+//        console.log(err);
+//        exit(1);
+//    });
 
 
 

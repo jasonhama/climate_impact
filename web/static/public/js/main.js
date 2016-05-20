@@ -95,7 +95,7 @@ app.config(["$routeProvider", function($routeProvider) {
             }]
         }
     })
-    .when('/account', {
+    .when('/app/account', {
         controller: 'AccountCtrl',
         templateUrl: 'partials/account.html',
         resolve: {
@@ -108,7 +108,16 @@ app.config(["$routeProvider", function($routeProvider) {
             }]
         }
     })
-    .when('/map', {
+    .when('/app/calculate', {
+        controller: 'calculatorCtrl',
+        templateUrl: 'partials/calc.html',
+        resolve: {
+            "currentAuth": ["Auth", function(Auth) {
+                return Auth.$requireAuth();
+            }]
+        }
+    })
+    .when('/app/map', {
         controller: 'MapController',
         templateUrl: 'partials/map.html',
         resolve: {
@@ -160,7 +169,7 @@ app.controller("userCtrl", ["$scope", "currentAuth",
 ]);
 
 app.controller("HomeCtrl", ["$scope", "currentAuth", "$mdSidenav",
-    function($scope, currentAuth, $mdSidenav) {
+    function($scope, Auth, $mdSidenav) {
 
         $scope.openMenu = function($mdOpenMenu, ev) {
             originatorEv = ev;
@@ -185,3 +194,10 @@ app.controller("HomeCtrl", ["$scope", "currentAuth", "$mdSidenav",
 
     }
 ]);
+
+app.controller("calculatorCtrl", ["$scope", "currentAuth",
+    function($scope, Auth) {
+        console.log('calculate');
+    }
+]);
+
